@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ApplicationDetailComponent } from './application-detail/application-detail.component';
+import { ResourceDetailComponent } from './resource-detail/resource-detail.component';
+
+const routes: Routes = [
+  { path: 'applications', component: ApplicationDetailComponent },
+  { path: 'resources', component: ResourceDetailComponent },
+  { path: '', redirectTo: '/applications', pathMatch: 'full' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Costs</div>
+        <div class="card-body">
+          <p>Highest Resource Cost : <span>{{ highestCost }}</span></p>
+          <p>Average Resource Cost : <span>{{ averageCost }}</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let resource of resources">
+          <h4 class="mb-0" (click)="getResourceDetails(resource)">
+            <i class="bi bi-caret-right"></i> {{resource}}
+            <i class="bi bi-caret-down ml-2" *ngIf="selectedResource === resource"></i>
+          </h4>
+          <ul *ngIf="selectedResource === resource">
+            <li class="list-group-item" *ngFor="let item of resourceDetails">
+              <strong>{{item.key}}:</strong> {{item.value}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

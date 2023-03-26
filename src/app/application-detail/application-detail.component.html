@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Costs</div>
+        <div class="card-body">
+          <p>Highest Application Cost : <span>{{ highestCost }}</span></p>
+          <p>Average Application Cost : <span>{{ averageCost }}</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let application of applications">
+          <h4 class="mb-0" (click)="getApplicationDetails(application)">
+            <i class="bi bi-caret-right"></i> {{application}}
+            <i class="bi bi-caret-down ml-2" *ngIf="selectedApplication === application"></i>
+          </h4>
+          <ul *ngIf="selectedApplication === application">
+            <li class="list-group-item" *ngFor="let item of applicationDetails">
+              <strong>{{item.key}}:</strong> {{item.value}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
